@@ -14,18 +14,18 @@
 #define	SYS_open	5
 #define	SYS_close	6
 #define	SYS_wait4	7
-				/* 8 is old creat */
+#define	SYS_compat.creat	8				/* 8 is old creat */
 #define	SYS_link	9
 #define	SYS_unlink	10
-				/* 11 is obsolete execv */
+#define	SYS_obs_execv	11				/* 11 is obsolete execv */
 #define	SYS_chdir	12
 #define	SYS_fchdir	13
 #define	SYS_mknod	14
 #define	SYS_chmod	15
 #define	SYS_chown	16
-#define	SYS_break	17
-				/* 18 is freebsd4 getfsstat */
-				/* 19 is old lseek */
+#define	SYS_obsolete17	17
+#define	SYS_compat4.getfsstat	18				/* 18 is freebsd4 getfsstat */
+#define	SYS_compat.lseek	19				/* 19 is old lseek */
 #define	SYS_getpid	20
 #define	SYS_mount	21
 #define	SYS_unmount	22
@@ -41,24 +41,24 @@
 #define	SYS_getsockname	32
 #define	SYS_access	33
 #define	SYS_chflags	34
-#define	SYS_fchflags	35
+#define	SYS_fchflags 35
 #define	SYS_sync	36
 #define	SYS_kill	37
-				/* 38 is old stat */
+#define	SYS_compat.stat 38				/* 38 is old stat */
 #define	SYS_getppid	39
-				/* 40 is old lstat */
+#define	SYS_compat.lstat	40				/* 40 is old lstat */
 #define	SYS_dup	41
-#define	SYS_freebsd10_pipe	42
+#define	SYS_compat10_pipe	42
 #define	SYS_getegid	43
 #define	SYS_profil	44
 #define	SYS_ktrace	45
-				/* 46 is old sigaction */
+#define	SYS_compat.sigaction	46				/* 46 is old sigaction */
 #define	SYS_getgid	47
-				/* 48 is old sigprocmask */
+#define	SYS_compat.sigprocmask	48				/* 48 is old sigprocmask */
 #define	SYS_getlogin	49
 #define	SYS_setlogin	50
-#define	SYS_acct	51
-				/* 52 is old sigpending */
+#define	SYS_obsolete51	51
+#define	SYS_compat.sigpending	52				/* 52 is old sigpending */
 #define	SYS_sigaltstack	53
 #define	SYS_ioctl	54
 #define	SYS_reboot	55
@@ -68,33 +68,33 @@
 #define	SYS_execve	59
 #define	SYS_umask	60
 #define	SYS_chroot	61
-				/* 62 is old fstat */
-				/* 63 is old getkerninfo */
-				/* 64 is old getpagesize */
+#define	SYS_compat.fstat	62				/* 62 is old fstat */
+#define	SYS_compat.getkerninfo	63				/* 63 is old getkerninfo */
+#define	SYS_compat.getpagesize	64				/* 64 is old getpagesize */
 #define	SYS_msync	65
 #define	SYS_vfork	66
-				/* 67 is obsolete vread */
-				/* 68 is obsolete vwrite */
+#define	SYS_obs_vread	67				/* 67 is obsolete vread */
+#define	SYS_obs_vwrite	68				/* 68 is obsolete vwrite */
 #define	SYS_sbrk	69
 #define	SYS_sstk	70
-				/* 71 is old mmap */
-#define	SYS_vadvise	72
+#define	SYS_compat.mmap	71				/* 71 is old mmap */
+#define	SYS_obsolete72	72
 #define	SYS_munmap	73
 #define	SYS_mprotect	74
 #define	SYS_madvise	75
-				/* 76 is obsolete vhangup */
-				/* 77 is obsolete vlimit */
+#define	SYS_obs_vhangup	76				/* 76 is obsolete vhangup */
+#define	SYS_obs_vlimit	77				/* 77 is obsolete vlimit */
 #define	SYS_mincore	78
 #define	SYS_getgroups	79
 #define	SYS_setgroups	80
 #define	SYS_getpgrp	81
 #define	SYS_setpgid	82
 #define	SYS_setitimer	83
-				/* 84 is old wait */
+#define	SYS_compat.wait	7				/* 84 is old wait */
 #define	SYS_swapon	85
 #define	SYS_getitimer	86
-				/* 87 is old gethostname */
-				/* 88 is old sethostname */
+#define	SYS_compat.gethostname	87				/* 87 is old gethostname */
+#define	SYS_compat.sethostname	88				/* 88 is old sethostname */
 #define	SYS_getdtablesize	89
 #define	SYS_dup2	90
 #define	SYS_fcntl	92
@@ -103,37 +103,38 @@
 #define	SYS_setpriority	96
 #define	SYS_socket	97
 #define	SYS_connect	98
-				/* 99 is old accept */
+#define	SYS_netcontrol	99				/* 99 is old accept */
 #define	SYS_getpriority	100
-				/* 101 is old send */
-				/* 102 is old recv */
-				/* 103 is old sigreturn */
+#define	SYS_netabort	101				/* 101 is old send */
+#define	SYS_netgetsockinfo	102				/* 102 is old recv */
+#define	SYS_compat.sigreturn	103				/* 103 is old sigreturn */
 #define	SYS_bind	104
 #define	SYS_setsockopt	105
 #define	SYS_listen	106
-				/* 107 is obsolete vtimes */
-				/* 108 is old sigvec */
-				/* 109 is old sigblock */
-				/* 110 is old sigsetmask */
-				/* 111 is old sigsuspend */
-				/* 112 is old sigstack */
-				/* 113 is old recvmsg */
-				/* 114 is old sendmsg */
-				/* 115 is obsolete vtrace */
+#define	SYS_obs_vtimes	107				/* 107 is obsolete vtimes */
+#define	SYS_compat.sigvec	108				/* 108 is old sigvec */
+#define	SYS_compat.sigblock	109				/* 109 is old sigblock */
+#define	SYS_compat.sigsetmask	110				/* 110 is old sigsetmask */
+#define	SYS_compat.sigsuspend	111				/* 111 is old sigsuspend */
+#define	SYS_compat.sigstack	112				/* 112 is old sigstack */
+#define	SYS_socketex	113				/* 113 is old recvmsg */
+#define	SYS_socketclose	114				/* 114 is old sendmsg */
+#define	SYS_obs_vtrace	115				/* 115 is obsolete vtrace */
 #define	SYS_gettimeofday	116
 #define	SYS_getrusage	117
 #define	SYS_getsockopt	118
+#define	SYS_number119	119
 #define	SYS_readv	120
 #define	SYS_writev	121
 #define	SYS_settimeofday	122
 #define	SYS_fchown	123
 #define	SYS_fchmod	124
-				/* 125 is old recvfrom */
+#define	SYS_netgetiflist	125				/* 125 is old recvfrom */
 #define	SYS_setreuid	126
 #define	SYS_setregid	127
 #define	SYS_rename	128
-				/* 129 is old truncate */
-				/* 130 is old ftruncate */
+#define	SYS_compat.truncate	129				/* 129 is old truncate */
+#define	SYS_compat.ftruncate	130				/* 130 is old ftruncate */
 #define	SYS_flock	131
 #define	SYS_mkfifo	132
 #define	SYS_sendto	133
@@ -142,69 +143,97 @@
 #define	SYS_mkdir	136
 #define	SYS_rmdir	137
 #define	SYS_utimes	138
-				/* 139 is obsolete 4.2 sigreturn */
+#define	SYS_obs_4.2	139				/* 139 is obsolete 4.2 sigreturn */
 #define	SYS_adjtime	140
-				/* 141 is old getpeername */
-				/* 142 is old gethostid */
-				/* 143 is old sethostid */
-				/* 144 is old getrlimit */
-				/* 145 is old setrlimit */
-				/* 146 is old killpg */
+#define	SYS_kqueueex	141				/* 141 is old getpeername */
+#define	SYS_compat.gethostid	142				/* 142 is old gethostid */
+#define	SYS_compat.sethostid	143				/* 143 is old sethostid */
+#define	SYS_gettrlimit	144				/* 144 is old getrlimit */
+#define	SYS_settrlimit	145				/* 145 is old setrlimit */
+#define	SYS_killpg	146				/* 146 is old killpg */
 #define	SYS_setsid	147
-#define	SYS_quotactl	148
-				/* 149 is old quota */
-				/* 150 is old getsockname */
+#define	SYS_obsolete148	148
+#define	SYS_compat.quota	149				/* 149 is old quota */
+#define	SYS_compat.getsockname	150				/* 150 is old getsockname */
+#define	SYS_number151	151
+#define	SYS_number152	152
+#define	SYS_number153	153
 #define	SYS_nlm_syscall	154
 #define	SYS_nfssvc	155
-				/* 156 is old getdirentries */
-				/* 157 is freebsd4 statfs */
-				/* 158 is freebsd4 fstatfs */
-#define	SYS_lgetfh	160
-#define	SYS_getfh	161
-				/* 162 is freebsd4 getdomainname */
-				/* 163 is freebsd4 setdomainname */
-				/* 164 is freebsd4 uname */
+#define	SYS_compat.getdirentries	156				/* 156 is old getdirentries */
+#define	SYS_compat4.statfs	157				/* 157 is freebsd4 statfs */
+#define	SYS_compat4.fstatfs	158				/* 158 is freebsd4 fstatfs */
+#define	SYS_number159	159
+#define	SYS_obsolete160	160
+#define	SYS_obsolete161	161
+#define	SYS_compat4.getdomainname	162				/* 162 is freebsd4 getdomainname */
+#define	SYS_compat4.setdomainname	163				/* 163 is freebsd4 setdomainname */
+#define	SYS_compat4.uname	164				/* 164 is freebsd4 uname */
 #define	SYS_sysarch	165
 #define	SYS_rtprio	166
+#define	SYS_number167	167
+#define	SYS_number168	168
 #define	SYS_semsys	169
 #define	SYS_msgsys	170
 #define	SYS_shmsys	171
-				/* 173 is freebsd6 pread */
-				/* 174 is freebsd6 pwrite */
-#define	SYS_setfib	175
-#define	SYS_ntp_adjtime	176
+#define	SYS_number172	172
+#define	SYS_compat6.pread	173				/* 173 is freebsd6 pread */
+#define	SYS_compat6.pwrite	174				/* 174 is freebsd6 pwrite */
+#define	SYS_obsolete175	175
+#define	SYS_obsolete176	176
+#define	SYS_number177	177
+#define	SYS_number178	178
+#define	SYS_number179	179
+#define	SYS_number180	180
 #define	SYS_setgid	181
 #define	SYS_setegid	182
 #define	SYS_seteuid	183
+#define	SYS_number184	184
+#define	SYS_number185	185
+#define	SYS_number186	186
+#define	SYS_number187	187
 #define	SYS_stat	188
 #define	SYS_fstat	189
 #define	SYS_lstat	190
 #define	SYS_pathconf	191
 #define	SYS_fpathconf	192
+#define	SYS_number193	193
 #define	SYS_getrlimit	194
 #define	SYS_setrlimit	195
 #define	SYS_getdirentries	196
-				/* 197 is freebsd6 mmap */
+#define	SYS_compat6.mmap	197				/* 197 is freebsd6 mmap */
 #define	SYS___syscall	198
-				/* 199 is freebsd6 lseek */
-				/* 200 is freebsd6 truncate */
-				/* 201 is freebsd6 ftruncate */
+#define	SYS_obsolete199	199				/* 199 is freebsd6 lseek */
+#define	SYS_obsolete200	200				/* 200 is freebsd6 truncate */
+#define	SYS_obsolete201	201				/* 201 is freebsd6 ftruncate */
 #define	SYS___sysctl	202
 #define	SYS_mlock	203
 #define	SYS_munlock	204
-#define	SYS_undelete	205
+#define	SYS_obsolete205	205
 #define	SYS_futimes	206
 #define	SYS_getpgid	207
+#define	SYS_number208	208
 #define	SYS_poll	209
-#define	SYS_freebsd7___semctl	220
+#define	SYS_lkmnosys	210
+#define	SYS_lkmnosys	211
+#define	SYS_lkmnosys	212
+#define	SYS_lkmnosys	213
+#define	SYS_lkmnosys	214
+#define	SYS_lkmnosys	215
+#define	SYS_lkmnosys	216
+#define	SYS_lkmnosys	217
+#define	SYS_lkmnosys	218
+#define	SYS_lkmnosys	219
+#define	SYS_compat7___semctl	220
 #define	SYS_semget	221
 #define	SYS_semop	222
-#define	SYS_freebsd7_msgctl	224
+#define	SYS_number	223
+#define	SYS_compat7.msgctl	224
 #define	SYS_msgget	225
 #define	SYS_msgsnd	226
 #define	SYS_msgrcv	227
 #define	SYS_shmat	228
-#define	SYS_freebsd7_shmctl	229
+#define	SYS_compat7.shmctl	229
 #define	SYS_shmdt	230
 #define	SYS_shmget	231
 #define	SYS_clock_gettime	232
@@ -220,32 +249,62 @@
 #define	SYS_ffclock_setestimate	242
 #define	SYS_ffclock_getestimate	243
 #define	SYS_clock_getcpuclockid2	247
-#define	SYS_ntp_gettime	248
+#define	SYS_obsolete248	248
+#define	SYS_number249	249
 #define	SYS_minherit	250
 #define	SYS_rfork	251
-#define	SYS_openbsd_poll	252
+#define	SYS_obsolete252	252
 #define	SYS_issetugid	253
 #define	SYS_lchown	254
 #define	SYS_aio_read	255
 #define	SYS_aio_write	256
-#define	SYS_lio_listio	257
+#define	SYS_obsolete257	257
+#define	SYS_number258	258
+#define	SYS_number259	259
+#define	SYS_number260	260
+#define	SYS_number261	261
+#define	SYS_number262	262
+#define	SYS_number263	263
+#define	SYS_number264	264
+#define	SYS_number265	265
+#define	SYS_number266	266
+#define	SYS_number267	267
+#define	SYS_number268	268
+#define	SYS_number269	269
+#define	SYS_number270	270
+#define	SYS_number271	271
 #define	SYS_getdents	272
+#define	SYS_number273	273
 #define	SYS_lchmod	274
 #define	SYS_netbsd_lchown	275
 #define	SYS_lutimes	276
 #define	SYS_netbsd_msync	277
-#define	SYS_nstat	278
-#define	SYS_nfstat	279
-#define	SYS_nlstat	280
+#define	SYS_obsolete278	278
+#define	SYS_obsolete279	279
+#define	SYS_obsolete280	280
+#define	SYS_number281	281
+#define	SYS_number282	282
+#define	SYS_number283	283
+#define	SYS_number284	284
+#define	SYS_number285	285
+#define	SYS_number286	286
+#define	SYS_number287	287
+#define	SYS_number288	288
 #define	SYS_preadv	289
 #define	SYS_pwritev	290
-				/* 297 is freebsd4 fhstatfs */
-#define	SYS_fhopen	298
-#define	SYS_fhstat	299
-#define	SYS_modnext	300
-#define	SYS_modstat	301
-#define	SYS_modfnext	302
-#define	SYS_modfind	303
+#define	SYS_number291	291
+#define	SYS_number292	292
+#define	SYS_number293	293
+#define	SYS_number294	294
+#define	SYS_number295	295
+#define	SYS_number296	296
+#define	SYS_compat4.fhstatfs	297 /* 297 is freebsd4 fhstatfs */
+#define	SYS_obsolete298	298
+#define	SYS_obsolete299	299
+#define	SYS_obsolete300	300
+#define	SYS_obsolete301	301
+#define	SYS_obsolete302	302
+#define	SYS_obsolete303	303
 #define	SYS_kldload	304
 #define	SYS_kldunload	305
 #define	SYS_kldfind	306
@@ -255,17 +314,17 @@
 #define	SYS_getsid	310
 #define	SYS_setresuid	311
 #define	SYS_setresgid	312
-				/* 313 is obsolete signanosleep */
+#define	SYS_obs_signanosleep	313 /* 313 is obsolete signanosleep */
 #define	SYS_aio_return	314
 #define	SYS_aio_suspend	315
 #define	SYS_aio_cancel	316
 #define	SYS_aio_error	317
-				/* 318 is freebsd6 aio_read */
-				/* 319 is freebsd6 aio_write */
-				/* 320 is freebsd6 lio_listio */
+#define	SYS_compat6.aio_read	318 /* 318 is freebsd6 aio_read */
+#define	SYS_compat6.aio_write	319 /* 319 is freebsd6 aio_write */
+#define	SYS_compat6.lio_listio	320 /* 320 is freebsd6 lio_listio */				
 #define	SYS_yield	321
-				/* 322 is obsolete thr_sleep */
-				/* 323 is obsolete thr_wakeup */
+#define	SYS_obs_thr_sleep 322				/* 322 is obsolete thr_sleep */
+#define	SYS_obs_thr_wakeup 323				/* 323 is obsolete thr_wakeup */
 #define	SYS_mlockall	324
 #define	SYS_munlockall	325
 #define	SYS___getcwd	326
@@ -278,41 +337,54 @@
 #define	SYS_sched_get_priority_min	333
 #define	SYS_sched_rr_get_interval	334
 #define	SYS_utrace	335
-				/* 336 is freebsd4 sendfile */
+#define	SYS_compat4.sendfile 336				/* 336 is freebsd4 sendfile */
 #define	SYS_kldsym	337
-#define	SYS_jail	338
+#define	SYS_obsolete338	338
 #define	SYS_nnpfs_syscall	339
 #define	SYS_sigprocmask	340
 #define	SYS_sigsuspend	341
-				/* 342 is freebsd4 sigaction */
+#define	SYS_compat4.sigaction 342				/* 342 is freebsd4 sigaction */
 #define	SYS_sigpending	343
-				/* 344 is freebsd4 sigreturn */
+#define	SYS_compat4.sigreturn 344				/* 344 is freebsd4 sigreturn */
 #define	SYS_sigtimedwait	345
 #define	SYS_sigwaitinfo	346
-#define	SYS___acl_get_file	347
-#define	SYS___acl_set_file	348
-#define	SYS___acl_get_fd	349
-#define	SYS___acl_set_fd	350
-#define	SYS___acl_delete_file	351
-#define	SYS___acl_delete_fd	352
-#define	SYS___acl_aclcheck_file	353
-#define	SYS___acl_aclcheck_fd	354
-#define	SYS_extattrctl	355
-#define	SYS_extattr_set_file	356
-#define	SYS_extattr_get_file	357
-#define	SYS_extattr_delete_file	358
+#define	SYS_obsolete347	347
+#define	SYS_obsolete348	348
+#define	SYS_obsolete349	349
+#define	SYS_obsolete350	350
+#define	SYS_obsolete351	351
+#define	SYS_obsolete352	352
+#define	SYS_obsolete353	353
+#define	SYS_obsolete354	354
+#define	SYS_obsolete355	355
+#define	SYS_obsolete356	356
+#define	SYS_obsolete357	357
+#define	SYS_obsolete358	358
 #define	SYS_aio_waitcomplete	359
 #define	SYS_getresuid	360
 #define	SYS_getresgid	361
 #define	SYS_kqueue	362
 #define	SYS_kevent	363
-#define	SYS_extattr_set_fd	371
-#define	SYS_extattr_get_fd	372
-#define	SYS_extattr_delete_fd	373
+#define	SYS_number364 364
+#define	SYS_number365 365
+#define	SYS_number366 366
+#define	SYS_number367 367
+#define	SYS_number368 368
+#define	SYS_number369 369
+#define	SYS_number370 370
+#define	SYS_obsolete371	371
+#define	SYS_obsolete372	372
+#define	SYS_obsolete373	373
 #define	SYS___setugid	374
-#define	SYS_eaccess	376
+#define	SYS_number375	375
+#define	SYS_obsolete376	376
 #define	SYS_afs3_syscall	377
 #define	SYS_nmount	378
+#define	SYS_mtypeprotect 379
+#define	SYS_number380 380
+#define	SYS_number381 381
+#define	SYS_number382 382
+#define	SYS_number383 383
 #define	SYS___mac_get_proc	384
 #define	SYS___mac_set_proc	385
 #define	SYS___mac_get_fd	386
@@ -327,7 +399,8 @@
 #define	SYS_getfsstat	395
 #define	SYS_statfs	396
 #define	SYS_fstatfs	397
-#define	SYS_fhstatfs	398
+#define	SYS_obsolete398	398
+#define	SYS_number399	399
 #define	SYS_ksem_close	400
 #define	SYS_ksem_post	401
 #define	SYS_ksem_wait	402
@@ -340,42 +413,48 @@
 #define	SYS___mac_get_pid	409
 #define	SYS___mac_get_link	410
 #define	SYS___mac_set_link	411
-#define	SYS_extattr_set_link	412
-#define	SYS_extattr_get_link	413
-#define	SYS_extattr_delete_link	414
+#define	SYS_obsolete412	412
+#define	SYS_obsolete413	413
+#define	SYS_obsolete414	414
 #define	SYS___mac_execve	415
 #define	SYS_sigaction	416
 #define	SYS_sigreturn	417
+#define	SYS_number418	418
+#define	SYS_number419	419
+#define	SYS_number420	420
 #define	SYS_getcontext	421
 #define	SYS_setcontext	422
 #define	SYS_swapcontext	423
-#define	SYS_swapoff	424
-#define	SYS___acl_get_link	425
-#define	SYS___acl_set_link	426
-#define	SYS___acl_delete_link	427
-#define	SYS___acl_aclcheck_link	428
+#define	SYS_obsolete424	424
+#define	SYS_obsolete425	425
+#define	SYS_obsolete426	426
+#define	SYS_obsolete427	427
+#define	SYS_obsolete428	428
 #define	SYS_sigwait	429
 #define	SYS_thr_create	430
 #define	SYS_thr_exit	431
 #define	SYS_thr_self	432
 #define	SYS_thr_kill	433
-#define	SYS_jail_attach	436
-#define	SYS_extattr_list_fd	437
-#define	SYS_extattr_list_file	438
-#define	SYS_extattr_list_link	439
+#define	SYS_number434	434
+#define	SYS_number435	435
+#define	SYS_obsolete436	436
+#define	SYS_obsolete437	437
+#define	SYS_obsolete438	438
+#define	SYS_obsolete439	439
+#define	SYS_number440	440
 #define	SYS_ksem_timedwait	441
 #define	SYS_thr_suspend	442
 #define	SYS_thr_wake	443
 #define	SYS_kldunloadf	444
-#define	SYS_audit	445
-#define	SYS_auditon	446
-#define	SYS_getauid	447
-#define	SYS_setauid	448
-#define	SYS_getaudit	449
-#define	SYS_setaudit	450
-#define	SYS_getaudit_addr	451
-#define	SYS_setaudit_addr	452
-#define	SYS_auditctl	453
+#define	SYS_obsolete445	445
+#define	SYS_obsolete446	446
+#define	SYS_obsolete447	447
+#define	SYS_obsolete448	448
+#define	SYS_obsolete449	449
+#define	SYS_obsolete450	450
+#define	SYS_obsolete451	451
+#define	SYS_obsolete452	452
+#define	SYS_obsolete453	453
 #define	SYS__umtx_op	454
 #define	SYS_thr_new	455
 #define	SYS_sigqueue	456
@@ -385,14 +464,18 @@
 #define	SYS_kmq_timedsend	460
 #define	SYS_kmq_notify	461
 #define	SYS_kmq_unlink	462
-#define	SYS_abort2	463
+#define	SYS_obsolete463	463
 #define	SYS_thr_set_name	464
 #define	SYS_aio_fsync	465
 #define	SYS_rtprio_thread	466
-#define	SYS_sctp_peeloff	471
-#define	SYS_sctp_generic_sendmsg	472
-#define	SYS_sctp_generic_sendmsg_iov	473
-#define	SYS_sctp_generic_recvmsg	474
+#define	SYS_obsolete467	467
+#define	SYS_obsolete468	468
+#define	SYS_obsolete469	469
+#define	SYS_obsolete470	470
+#define	SYS_obsolete471	471
+#define	SYS_obsolete472	472
+#define	SYS_obsolete473	473
+#define	SYS_obsolete474	474
 #define	SYS_pread	475
 #define	SYS_pwrite	476
 #define	SYS_mmap	477
@@ -407,10 +490,10 @@
 #define	SYS_cpuset_getid	486
 #define	SYS_cpuset_getaffinity	487
 #define	SYS_cpuset_setaffinity	488
-#define	SYS_faccessat	489
+#define	SYS_obsolete489	489
 #define	SYS_fchmodat	490
 #define	SYS_fchownat	491
-#define	SYS_fexecve	492
+#define	SYS_obsolete492	492
 #define	SYS_fstatat	493
 #define	SYS_futimesat	494
 #define	SYS_linkat	495
@@ -418,53 +501,227 @@
 #define	SYS_mkfifoat	497
 #define	SYS_mknodat	498
 #define	SYS_openat	499
-#define	SYS_readlinkat	500
+#define	SYS_obsolete500	500
 #define	SYS_renameat	501
 #define	SYS_symlinkat	502
 #define	SYS_unlinkat	503
-#define	SYS_posix_openpt	504
+#define	SYS_obsolete504	504
 #define	SYS_gssd_syscall	505
-#define	SYS_jail_get	506
-#define	SYS_jail_set	507
-#define	SYS_jail_remove	508
-#define	SYS_closefrom	509
+#define	SYS_obsolete506	506
+#define	SYS_obsolete507	507
+#define	SYS_obsolete508	508
+#define	SYS_obsolete509	509
 #define	SYS___semctl	510
 #define	SYS_msgctl	511
 #define	SYS_shmctl	512
-#define	SYS_lpathconf	513
-				/* 514 is obsolete cap_new */
+#define	SYS_obselete513	513
+#define SYS_obs_cap_new 514			/* 514 is obsolete cap_new */
 #define	SYS___cap_rights_get	515
 #define	SYS_cap_enter	516
 #define	SYS_cap_getmode	517
 #define	SYS_pdfork	518
 #define	SYS_pdkill	519
 #define	SYS_pdgetpid	520
+#define	SYS_number521	521
 #define	SYS_pselect	522
-#define	SYS_getloginclass	523
-#define	SYS_setloginclass	524
+#define	SYS_obsolete523	523
+#define	SYS_obsolete524	524
 #define	SYS_rctl_get_racct	525
 #define	SYS_rctl_get_rules	526
 #define	SYS_rctl_get_limits	527
 #define	SYS_rctl_add_rule	528
 #define	SYS_rctl_remove_rule	529
-#define	SYS_posix_fallocate	530
-#define	SYS_posix_fadvise	531
-#define	SYS_wait6	532
-#define	SYS_cap_rights_limit	533
-#define	SYS_cap_ioctls_limit	534
-#define	SYS_cap_ioctls_get	535
-#define	SYS_cap_fcntls_limit	536
-#define	SYS_cap_fcntls_get	537
-#define	SYS_bindat	538
-#define	SYS_connectat	539
-#define	SYS_chflagsat	540
-#define	SYS_accept4	541
-#define	SYS_pipe2	542
-#define	SYS_aio_mlock	543
-#define	SYS_procctl	544
-#define	SYS_ppoll	545
-#define	SYS_futimens	546
-#define	SYS_utimensat	547
-#define	SYS_numa_getaffinity	548
-#define	SYS_numa_setaffinity	549
-#define	SYS_MAXSYSCALL	550
+#define	SYS_obsolete530	530
+#define	SYS_obsolete541	531
+#define	SYS_regmr_call	532
+#define	SYS_jitshm_create	533
+#define	SYS_jitshm_alias	534
+#define	SYS_dl_get_list	535
+#define	SYS_dl_get_info	536
+#define	SYS_obsolete537	537
+#define	SYS_evf_create	538
+#define	SYS_evf_delete	539
+#define	SYS_evf_open	540
+#define	SYS_evf_close	541
+#define	SYS_evf_wait	542
+#define	SYS_evf_trywait	543
+#define	SYS_evf_set	544
+#define	SYS_evf_clear	545
+#define	SYS_evf_cancel	546
+#define	SYS_query_memory_protection	547
+#define	SYS_batch_map	548
+#define	SYS_osem_create	549
+#define	SYS_osem_delete	550
+#define	SYS_osem_open	551
+#define	SYS_osem_close	552
+#define	SYS_osem_wait	553
+#define	SYS_osem_trywait	554
+#define	SYS_osem_post	555
+#define	SYS_osem_cancel	556
+#define	SYS_namedobj_create	557
+#define	SYS_namedobj_delete	558
+#define	SYS_set_vm_container	559
+#define	SYS_debug_init	560
+#define	SYS_suspend_process	561
+#define	SYS_resume_process	562
+#define	SYS_opmc_enable	563
+#define	SYS_opmc_disable	564
+#define	SYS_opmc_set_ctl 565
+#define	SYS_opmc_set_ctr 566
+#define	SYS_opmc_get_ctr 567
+#define	SYS_budget_create 568
+#define	SYS_budget_delete 569
+#define	SYS_budget_get 570
+#define	SYS_budget_set 571
+#define	SYS_virtual_query 572
+#define	SYS_mdbg_call 573
+#define	SYS_obs_sblock_create 574
+#define	SYS_obs_sblock_delete 575
+#define	SYS_obs_sblock_enter 576
+#define	SYS_obs_sblock_exit 577
+#define	SYS_obs_sblock_xenter 578
+#define	SYS_obs_sblock_xexit 579
+#define	SYS_obs_eport_create 580
+#define	SYS_obs_eport_delete 581
+#define	SYS_obs_eport_trigger 582
+#define	SYS_obs_eport_open 583
+#define	SYS_obs_eport_close 584
+#define	SYS_is_in_sandbox 585
+#define	SYS_dmem_container 586
+#define	SYS_get_authinfo 587
+#define	SYS_mname 588
+#define	SYS_dynlib_dlopen 589
+#define	SYS_dynlib_dlclose 590
+#define	SYS_dynlib_dlsym 591
+#define	SYS_dynlib_get_list 592
+#define	SYS_dynlib_get_info 593
+#define	SYS_dynlib_load_prx 594
+#define	SYS_dynlib_unload_prx 595
+#define	SYS_dynlib_do_copy_relocations 596
+#define	SYS_dynlib_prepare_dlclose 597
+#define	SYS_dynlib_get_proc_param 598
+#define	SYS_dynlib_process_needed_and_relocate 599
+#define	SYS_sandbox_path 600
+#define	SYS_mdgb_service 601
+#define	SYS_radomnized_path 602
+#define	SYS_rdup 603
+#define	SYS_dl_get_metadata 604
+#define	SYS_workaround8849 605
+#define	SYS_is_development_mode 606
+#define	SYS_get_self_auth_info 607
+#define	SYS_dynlib_get_info_ex 608
+#define	SYS_budget_getid 609
+#define	SYS_budget_get_ptype 610
+#define	SYS_get_paging_stats_of_all_threads 611
+#define	SYS_get_proc_type_info 612
+#define	SYS_get_resident_count 613
+#define	SYS_prepare_to_suspend_process 614
+#define	SYS_get_resident_fmem_count 615
+#define	SYS_thr_get_name 616
+#define	SYS_set_gpo 617
+#define	SYS_get_paging_stats_of_all_objects 618
+#define	SYS_test_debug_rwmem 619
+#define	SYS_free_stack 620
+#define	SYS_suspend_system 621
+#define	SYS_ipmimgr_call 622
+#define	SYS_get_gpo 623
+#define	SYS_get_vm_map_timestamp 624
+#define	SYS_opmc_set_hw 625
+#define	SYS_opmc_get_hw 626
+#define	SYS_get_cpu_usage_all 627
+#define	SYS_mmap_dmem 628
+#define	SYS_physhm_open 629
+#define	SYS_physhm_unlink 630
+#define	SYS_resume_internal_hdd 631
+#define	SYS_thr_suspend_ucontext 632
+#define	SYS_thr_resume_ucontext 633
+#define	SYS_thr_get_ucontext 634
+#define	SYS_thr_set_ucontext 635
+#define	SYS_set_timezone_info 636
+#define	SYS_set_phys_fmem_limit 637
+#define	SYS_utc_to_localtime 638
+#define	SYS_localtime_to_utc 639
+#define	SYS_set_uevt 640
+#define	SYS_get_cpu_usage_proc 641
+#define	SYS_get_map_statistics 642
+#define	SYS_set_chicken_switches 643
+#define	SYS_number644 644
+#define	SYS_number645 645
+#define	SYS_get_kernel_mem_statistics 646
+#define	SYS_get_sdk_compiled_version 647
+#define	SYS_app_state_change 648
+#define	SYS_dynlib_get_obj_member 649
+#define	SYS_budget_get_ptype_of_budget 650
+#define	SYS_prepare_to_resume_process 651
+#define	SYS_process_terminate 652
+#define	SYS_blockpool_open 653
+#define	SYS_blockpool_map 654
+#define	SYS_blockpool_unmap 655
+#define	SYS_get_info_for_libdbg 656
+#define	SYS_blockpool_batch 657
+#define	SYS_fdatasync 658
+#define	SYS_dynlib_get_list2 659
+#define	SYS_dynlib_get_info2 660
+#define	SYS_aio_submit 661
+#define	SYS_aio_multi_delete 662
+#define	SYS_aio_multi_wait 663
+#define	SYS_aio_multi_poll 664
+#define	SYS_aio_get_data 665
+#define	SYS_aio_multi_cancel 666
+#define	SYS_get_bio_usage_all 667
+#define	SYS_aio_create 668
+#define	SYS_aio_submit_cmd 669
+#define	SYS_aio_init 670
+#define	SYS_get_page_table_stats 671
+#define	SYS_dynlib_get_list_for_libdbg 672
+#define	SYS_blockpool_move 673
+#define	SYS_virtual_query_all 674
+#define	SYS_reserve_2mb_page 675
+#define	SYS_cpumodel_yield 676
+#define	SYS_wait6 677
+#define	SYS_cap_rights_limit 678
+#define	SYS_cap_ioctls_limit 679
+#define	SYS_cap_ioctls_get 680
+#define	SYS_cap_fcntls_limit 681
+#define	SYS_cap_fcntls_get 682
+#define	SYS_bindat 683
+#define	SYS_connectat 684
+#define	SYS_chflagsat 685
+#define	SYS_accept4 686
+#define	SYS_pipe2 687
+#define	SYS_aio_mlock 688
+#define	SYS_procctl 689
+#define	SYS_ppoll 690
+#define	SYS_futimens 691
+#define	SYS_utimensat 692
+#define	SYS_numa_getaffinity 693
+#define	SYS_numa_setaffinity 694
+#define	SYS_number695 695
+#define	SYS_number696 696
+#define	SYS_number697 697
+#define	SYS_number698 698
+#define	SYS_number699 699
+#define	SYS_apr_submit 700
+#define	SYS_apr_resolve 701
+#define	SYS_apr_stat 702
+#define	SYS_apr_wait 703
+#define	SYS_apr_ctl 704
+#define	SYS_get_phys_page_size 705
+#define	SYS_begin_app_mount 706
+#define	SYS_end_app_mount 707
+#define	SYS_fsc2h_ctrl 708
+#define	SYS_streamwrite 709
+#define	SYS_app_save 710
+#define	SYS_app_restore 711
+#define	SYS_saved_app_delete 712
+#define	SYS_get_ppr_sdk_compiled_version 713
+#define	SYS_notify_app_event 714
+#define	SYS_loreq 715
+#define	SYS_openintr 716
+#define	SYS_dl_get_info_2 717
+#define	SYS_acinfo_add 718
+#define	SYS_acinfo_delete 719
+#define	SYS_acinfo_get_all_for_coredump 720
+#define	SYS_ampr_ctrl_debug 721
+#define	SYS_workspace_ctrl 722
+#define	SYS_MAXSYSCALL	722
