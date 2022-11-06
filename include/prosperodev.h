@@ -23,5 +23,6 @@
 #include <libSceVideoOut.h>
 #include <libSceSystemService.h>
 #include <libSceAudioOut.h>
+#include <libSceGLSlimClientVSH.h>
 
 #endif
